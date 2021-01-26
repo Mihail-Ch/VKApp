@@ -15,6 +15,24 @@
 		03870F0325C05E9A002D02AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03870F0125C05E9A002D02AB /* LaunchScreen.storyboard */; };
 		03870F0E25C05E9A002D02AB /* VK_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03870F0D25C05E9A002D02AB /* VK_Tests.swift */; };
 		03870F1925C05E9A002D02AB /* VK_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03870F1825C05E9A002D02AB /* VK_UITests.swift */; };
+		03870F3325C060F4002D02AB /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03870F3225C060F4002D02AB /* Session.swift */; };
+		03870F3B25C06152002D02AB /* VKApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03870F3A25C06152002D02AB /* VKApi.swift */; };
+		03870F4025C06178002D02AB /* VKResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03870F3F25C06178002D02AB /* VKResponse.swift */; };
+		03870F4725C061CF002D02AB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03870F4625C061CF002D02AB /* User.swift */; };
+		03870F4C25C061EA002D02AB /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03870F4B25C061EA002D02AB /* Group.swift */; };
+		03870F5425C06201002D02AB /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03870F5325C06201002D02AB /* Photo.swift */; };
+		03870F5A25C06252002D02AB /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03870F5925C06252002D02AB /* AuthorizationViewController.swift */; };
+		03870F6325C0627A002D02AB /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03870F6225C0627A002D02AB /* WebKit.framework */; };
+		03870F6525C062C8002D02AB /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03870F6425C062C8002D02AB /* FriendsViewController.swift */; };
+		03870F6D25C062EA002D02AB /* FriendsPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03870F6C25C062EA002D02AB /* FriendsPhotoViewController.swift */; };
+		03870F7225C06311002D02AB /* MyGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03870F7125C06311002D02AB /* MyGroupViewController.swift */; };
+		03870F7725C0632F002D02AB /* AllGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03870F7625C0632F002D02AB /* AllGroupViewController.swift */; };
+		03870F7D25C0637C002D02AB /* ShadowRoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03870F7C25C0637C002D02AB /* ShadowRoundView.swift */; };
+		03870F8625C063C5002D02AB /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03870F8525C063C5002D02AB /* PhotoCollectionViewCell.swift */; };
+		03870F9725C06420002D02AB /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03870F9525C06420002D02AB /* TableViewCell.swift */; };
+		03870F9825C06420002D02AB /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03870F9625C06420002D02AB /* TableViewCell.xib */; };
+		03870F9E25C06458002D02AB /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03870F9D25C06458002D02AB /* LikeButton.swift */; };
+		03870FA725C06498002D02AB /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03870FA625C06498002D02AB /* Section.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +67,24 @@
 		03870F1425C05E9A002D02AB /* VK.UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VK.UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03870F1825C05E9A002D02AB /* VK_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VK_UITests.swift; sourceTree = "<group>"; };
 		03870F1A25C05E9A002D02AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03870F3225C060F4002D02AB /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		03870F3A25C06152002D02AB /* VKApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKApi.swift; sourceTree = "<group>"; };
+		03870F3F25C06178002D02AB /* VKResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKResponse.swift; sourceTree = "<group>"; };
+		03870F4625C061CF002D02AB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		03870F4B25C061EA002D02AB /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		03870F5325C06201002D02AB /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		03870F5925C06252002D02AB /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
+		03870F6225C0627A002D02AB /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		03870F6425C062C8002D02AB /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		03870F6C25C062EA002D02AB /* FriendsPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsPhotoViewController.swift; sourceTree = "<group>"; };
+		03870F7125C06311002D02AB /* MyGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupViewController.swift; sourceTree = "<group>"; };
+		03870F7625C0632F002D02AB /* AllGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupViewController.swift; sourceTree = "<group>"; };
+		03870F7C25C0637C002D02AB /* ShadowRoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowRoundView.swift; sourceTree = "<group>"; };
+		03870F8525C063C5002D02AB /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		03870F9525C06420002D02AB /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		03870F9625C06420002D02AB /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		03870F9D25C06458002D02AB /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
+		03870FA625C06498002D02AB /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03870F6325C0627A002D02AB /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +120,7 @@
 				03870F0C25C05E9A002D02AB /* VK.Tests */,
 				03870F1725C05E9A002D02AB /* VK.UITests */,
 				03870EF425C05E98002D02AB /* Products */,
+				03870F6125C0627A002D02AB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,10 +137,16 @@
 		03870EF525C05E98002D02AB /* VK. */ = {
 			isa = PBXGroup;
 			children = (
+				03870F3125C060CF002D02AB /* Network */,
+				03870F4525C061B6002D02AB /* Model */,
+				03870F5825C0621A002D02AB /* Controller */,
+				03870F7B25C06355002D02AB /* View */,
+				03870F8425C0639A002D02AB /* Cell */,
+				03870F9C25C0642C002D02AB /* Button */,
+				03870FA525C0647F002D02AB /* Helpers */,
 				03870EF625C05E98002D02AB /* AppDelegate.swift */,
 				03870EF825C05E98002D02AB /* SceneDelegate.swift */,
 				03870EFA25C05E98002D02AB /* ViewController.swift */,
-				03870EFC25C05E99002D02AB /* Main.storyboard */,
 				03870EFF25C05E9A002D02AB /* Assets.xcassets */,
 				03870F0125C05E9A002D02AB /* LaunchScreen.storyboard */,
 				03870F0425C05E9A002D02AB /* Info.plist */,
@@ -126,6 +170,81 @@
 				03870F1A25C05E9A002D02AB /* Info.plist */,
 			);
 			path = VK.UITests;
+			sourceTree = "<group>";
+		};
+		03870F3125C060CF002D02AB /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				03870F3225C060F4002D02AB /* Session.swift */,
+				03870F3A25C06152002D02AB /* VKApi.swift */,
+				03870F3F25C06178002D02AB /* VKResponse.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		03870F4525C061B6002D02AB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				03870F4625C061CF002D02AB /* User.swift */,
+				03870F4B25C061EA002D02AB /* Group.swift */,
+				03870F5325C06201002D02AB /* Photo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		03870F5825C0621A002D02AB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				03870EFC25C05E99002D02AB /* Main.storyboard */,
+				03870F5925C06252002D02AB /* AuthorizationViewController.swift */,
+				03870F6425C062C8002D02AB /* FriendsViewController.swift */,
+				03870F6C25C062EA002D02AB /* FriendsPhotoViewController.swift */,
+				03870F7125C06311002D02AB /* MyGroupViewController.swift */,
+				03870F7625C0632F002D02AB /* AllGroupViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		03870F6125C0627A002D02AB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				03870F6225C0627A002D02AB /* WebKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		03870F7B25C06355002D02AB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				03870F7C25C0637C002D02AB /* ShadowRoundView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		03870F8425C0639A002D02AB /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				03870F8525C063C5002D02AB /* PhotoCollectionViewCell.swift */,
+				03870F9525C06420002D02AB /* TableViewCell.swift */,
+				03870F9625C06420002D02AB /* TableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		03870F9C25C0642C002D02AB /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				03870F9D25C06458002D02AB /* LikeButton.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		03870FA525C0647F002D02AB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				03870FA625C06498002D02AB /* Section.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03870F0325C05E9A002D02AB /* LaunchScreen.storyboard in Resources */,
+				03870F9825C06420002D02AB /* TableViewCell.xib in Resources */,
 				03870F0025C05E9A002D02AB /* Assets.xcassets in Resources */,
 				03870EFE25C05E99002D02AB /* Main.storyboard in Resources */,
 			);
@@ -258,9 +378,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03870F3B25C06152002D02AB /* VKApi.swift in Sources */,
+				03870F7D25C0637C002D02AB /* ShadowRoundView.swift in Sources */,
+				03870F7225C06311002D02AB /* MyGroupViewController.swift in Sources */,
+				03870F3325C060F4002D02AB /* Session.swift in Sources */,
+				03870F6D25C062EA002D02AB /* FriendsPhotoViewController.swift in Sources */,
 				03870EFB25C05E98002D02AB /* ViewController.swift in Sources */,
+				03870FA725C06498002D02AB /* Section.swift in Sources */,
+				03870F5425C06201002D02AB /* Photo.swift in Sources */,
+				03870F4C25C061EA002D02AB /* Group.swift in Sources */,
 				03870EF725C05E98002D02AB /* AppDelegate.swift in Sources */,
+				03870F8625C063C5002D02AB /* PhotoCollectionViewCell.swift in Sources */,
+				03870F9E25C06458002D02AB /* LikeButton.swift in Sources */,
+				03870F6525C062C8002D02AB /* FriendsViewController.swift in Sources */,
 				03870EF925C05E98002D02AB /* SceneDelegate.swift in Sources */,
+				03870F7725C0632F002D02AB /* AllGroupViewController.swift in Sources */,
+				03870F4025C06178002D02AB /* VKResponse.swift in Sources */,
+				03870F9725C06420002D02AB /* TableViewCell.swift in Sources */,
+				03870F5A25C06252002D02AB /* AuthorizationViewController.swift in Sources */,
+				03870F4725C061CF002D02AB /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
