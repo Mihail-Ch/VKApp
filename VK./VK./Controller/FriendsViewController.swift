@@ -86,9 +86,9 @@ extension FriendsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
         let friend = sections[indexPath.section]
-        cell.label.text = friend.names[indexPath.row].firstName + friend.names[indexPath.row].lastName
-       // cell.configure(name: friend.names[indexPath.row].lastName + friend.names[indexPath.row].firstName,
-           //  avatar: UIImage(named: friend.names[indexPath.row].avatar)!)
+        cell.label.text = friend.names[indexPath.row].firstName + " " + friend.names[indexPath.row].lastName
+        cell.avatar.downloadImage(urlPath: friend.names[indexPath.row].avatar)
+       
         return cell
     }
     
@@ -139,8 +139,4 @@ extension FriendsViewController: UISearchBarDelegate {
         view.endEditing(true)
         print("Search button clicked")
     }
-
-
-
-
 }

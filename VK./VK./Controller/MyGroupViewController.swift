@@ -45,16 +45,15 @@ class MyGroupViewController: UIViewController {
     //MARK: - Navigation
     
     @IBAction func unwindFromAllGroups(_ sender: UIStoryboardSegue) {
-       /* guard let controller = sender.source as? AllGroupViewController,
+        guard let controller = sender.source as? AllGroupViewController,
               let indexPath = controller.tableView.indexPathForSelectedRow else {
             return
         }
-        let group = controller.groups[indexPath.row]
-        guard !groups.contains(group) else {
-            return
+        var group = controller.groups[indexPath.row].name
+        if !group.contains(group) {
+            group.append(group)
+            tableView.reloadData()
         }
-        groups.append(group)
-        tableView.reloadData()*/
     }
     
     //MARK: - UpdateTableView
@@ -101,12 +100,12 @@ extension MyGroupViewController: UITableViewDataSource {
 //MARK: - SearchBarDelegate
 
 extension MyGroupViewController: UISearchBarDelegate {
-   /*
+   
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         let groupsDictionary = Dictionary.init(grouping: groups.filter{ (group) -> Bool in
             return searchText.isEmpty ? true :
-                group.groupName.lowercased().contains(searchText.lowercased())
-        }) {$0.groupName.prefix(1)}
+                group.name.lowercased().contains(searchText.lowercased())
+        }) {$0.name.prefix(1)}
         sections = groupsDictionary.map { Section(letter: String($0.key), names: $0.value) }
         sections.sort { $0.letter < $1.letter}
         tableView.reloadData()
@@ -115,7 +114,7 @@ extension MyGroupViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         view.endEditing(true)
         print("Search button clicked")
-    }*/
+    }
 }
 
 //MARK: - Delegate

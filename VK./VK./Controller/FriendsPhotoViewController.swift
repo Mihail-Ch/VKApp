@@ -41,6 +41,7 @@ extension FriendsPhotoViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! PhotoCollectionViewCell
+       
        // cell.userPhoto.image = UIImage(named: photo!.avatar[indexPath.row])
         return cell
     }
