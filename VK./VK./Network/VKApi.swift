@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import RealmSwift
 
 final class VKApi {
     
@@ -16,7 +16,7 @@ final class VKApi {
         case friends
         case groups
         case searchGroups(searchText: String)
-        case photos(id: String)
+        case photos(id: Int)
         
         var path: String {
             switch self {
@@ -40,7 +40,7 @@ final class VKApi {
                 return ["count": "10",
                         "extended": "1"]
             case .photos(let id):
-                return ["owner_id": id]
+                return ["owner_id": String(id)]
             case .searchGroups(let searchText):
                 return ["q": searchText]
             }
@@ -77,12 +77,13 @@ final class VKApi {
         task.resume()
     }
     
-    func getFriends(completion: @escaping ([User]) -> Void) {
-        request(.friends) { (data) in
+    func getFriends(completion: @escaping () -> Void) {
+        request(.friends) { [weak self] (data) in
             guard let data = data else { return }
             do {
                 let response = try JSONDecoder().decode(VKResponse<User>.self, from: data)
-                completion(response.items)
+                self?.saveToRealm(response.items)
+                completion()
             } catch {
                 print(error)
             }
@@ -113,15 +114,26 @@ final class VKApi {
         }
     }
     
-    func getFriendsPhoto(complition: @escaping([User]) -> Void) {
-        request(.photos(id: session.token)) { (data) in
+    func getFriendsPhoto(ownerId: Int, complition: @escaping([Photo]) -> Void) {
+        request(.photos(id: ownerId)) { (data) in
             guard let data = data else {return}
             do {
-                let response = try JSONDecoder().decode(VKResponse<User>.self, from: data)
+                let response = try JSONDecoder().decode(VKResponse<Photo>.self, from: data)
                 complition(response.items)
             } catch {
                 print(error)
             }
+        }
+    }
+    
+    private func saveToRealm<T: Object>(_ objects: [T]) {
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.add(objects, update: .modified)
+            }
+        } catch  {
+            print(error)
         }
     }
 }

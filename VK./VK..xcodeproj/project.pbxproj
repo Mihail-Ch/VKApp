@@ -58,6 +58,8 @@
 
 /* Begin PBXFileReference section */
 		012F1C2816D55B3D01E0DECA /* Pods-VK..debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VK..debug.xcconfig"; path = "Target Support Files/Pods-VK./Pods-VK..debug.xcconfig"; sourceTree = "<group>"; };
+		0337FC8C25C48850006DEEAE /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0337FCB125C48AE3006DEEAE /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		03870EF325C05E98002D02AB /* VK..app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VK..app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03870EF625C05E98002D02AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03870EF825C05E98002D02AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -227,6 +229,8 @@
 		03870F6125C0627A002D02AB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0337FCB125C48AE3006DEEAE /* Kingfisher.framework */,
+				0337FC8C25C48850006DEEAE /* Kingfisher.framework */,
 				03E1948725C1FC0200EF8AF2 /* Kingfisher.framework */,
 				03870F6225C0627A002D02AB /* WebKit.framework */,
 				AF6F5426E92C8B276F1EDDE7 /* Pods_VK_.framework */,

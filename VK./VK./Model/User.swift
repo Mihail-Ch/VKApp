@@ -6,14 +6,22 @@
 //
 
 import Foundation
+import RealmSwift
 
-class User:  Decodable {
+class User:Object, Decodable {
     
-    var id: Int
-    var firstName: String
-    var lastName: String
-    var avatar: String
+    @objc dynamic var id: Int
+    @objc dynamic var firstName: String
+    @objc dynamic var lastName: String
+    @objc dynamic var avatar: String
     
+    var fullName: String {
+        return lastName + " " + firstName
+    }
+    
+    override class func primaryKey() -> String? {
+        return "id"
+    }
     
     enum CodingKeys: String, CodingKey {
         

@@ -7,13 +7,13 @@
 
 import UIKit
 
-class FriendsPhotoViewController: UIViewController {
 
+class FriendsPhotoViewController: UIViewController, UICollectionViewDelegateFlowLayout {
+
+    var friendId: Int = 0
+    var photo: [Photo]?
+    lazy var vkApi = VKApi()
    
-    var photo: User?
-    var vkApi = VKApi()
-    let session = Session.shared
-    
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
             collectionView.dataSource = self
@@ -24,33 +24,55 @@ class FriendsPhotoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        vkApi.getFriendsPhoto(ownerId: friendId) { [weak self] photos in
+            self?.photo = photos
+            self?.collectionView.reloadData()
+        }
     }
 }
+
+// MARK: - UICollectionViewDelegateFlowLayout
+enum  Layout {
+    static let columns = 2
+    static let cellHeight: CGFloat = 150
+}
+
+func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    let isBigCell = (indexPath.row + 1) % (Layout.columns + 1) == 0
+    let width = isBigCell ? collectionView.frame.width : collectionView.frame.width / 2
+    
+    return CGSize(width: width, height: Layout.cellHeight)
+}
+
+func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    return .zero
+}
+
+func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+    return .zero
+}
+
+
 
 //MARK: - DataSource
 
 extension FriendsPhotoViewController: UICollectionViewDataSource {
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photo!.avatar.count
+        return photo!.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! PhotoCollectionViewCell
-       
-       // cell.userPhoto.image = UIImage(named: photo!.avatar[indexPath.row])
+        let photos = photo?[indexPath.row]
+        cell.userPhoto.downloadImage(urlPath: photos?.imageUrl)
         return cell
     }
 }
 
 //MARK: - Delegate
 
-extension FriendsPhotoViewController: UICollectionViewDelegate {
-    
-}
+extension FriendsPhotoViewController: UICollectionViewDelegate { }
 
 

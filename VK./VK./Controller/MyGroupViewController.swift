@@ -19,6 +19,7 @@ class MyGroupViewController: UIViewController {
         didSet {
             tableView?.dataSource = self
             tableView?.delegate = self
+            tableView.separatorStyle = .none
         }
     }
     @IBOutlet weak var searchBar: UISearchBar! {
@@ -39,7 +40,7 @@ class MyGroupViewController: UIViewController {
         }
         title()
         makeSortedSection()
-        
+        tableView.register(TableViewCell.nib, forCellReuseIdentifier: TableViewCell.reuseId)
     }
     
     //MARK: - Navigation
@@ -85,7 +86,9 @@ extension MyGroupViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
         let group = sections[indexPath.section]
-    cell.configure(name: group.names[indexPath.row].name, avatar: UIImage(named: group.names[indexPath.row].avatar)!)
+        cell.label.text = group.names[indexPath.row].name
+        cell.avatar.downloadImage(urlPath: group.names[indexPath.row].avatar)
+   
         return cell
     }
 
@@ -119,11 +122,6 @@ extension MyGroupViewController: UISearchBarDelegate {
 
 //MARK: - Delegate
 
-extension MyGroupViewController: UITableViewDelegate {
-    
-
-
-
-}
+extension MyGroupViewController: UITableViewDelegate { }
 
 

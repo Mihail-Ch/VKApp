@@ -12,3 +12,4 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var userPhoto: UIImageView!
     
 }
+ 

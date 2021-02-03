@@ -6,12 +6,13 @@
 //
 
 import Foundation
+import RealmSwift
 
-class GroupItems:  Decodable {
+class GroupItems:Object,  Decodable {
     
-    var id: Int = 0
-    var name: String = ""
-    var avatar: String = ""
+    @objc dynamic var id: Int = 0
+    @objc dynamic var name: String = ""
+    @objc dynamic var avatar: String = ""
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
