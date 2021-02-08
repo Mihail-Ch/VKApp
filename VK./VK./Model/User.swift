@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class User:Object, Decodable {
+class User: Object, Decodable {
     
     @objc dynamic var id: Int
     @objc dynamic var firstName: String

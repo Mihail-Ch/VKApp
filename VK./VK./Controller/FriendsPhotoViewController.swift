@@ -10,6 +10,7 @@ import UIKit
 
 class FriendsPhotoViewController: UIViewController, UICollectionViewDelegateFlowLayout {
 
+    var userPhoto: String?
     var friendId: Int = 0
     var photo: [Photo]?
     lazy var vkApi = VKApi()
@@ -23,13 +24,15 @@ class FriendsPhotoViewController: UIViewController, UICollectionViewDelegateFlow
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        title = userPhoto
         vkApi.getFriendsPhoto(ownerId: friendId) { [weak self] photos in
             self?.photo = photos
             self?.collectionView.reloadData()
         }
     }
-}
+
+    @IBAction func unwindToShowPhoto(_ unwindSegue: UIStoryboardSegue) { }
+
 
 // MARK: - UICollectionViewDelegateFlowLayout
 enum  Layout {
@@ -52,7 +55,7 @@ func collectionView(_ collectionView: UICollectionView, layout collectionViewLay
     return .zero
 }
 
-
+}
 
 //MARK: - DataSource
 

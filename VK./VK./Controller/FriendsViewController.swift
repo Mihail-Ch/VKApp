@@ -65,6 +65,21 @@ class FriendsViewController: UIViewController {
         
     }
     
+    //MARK: - Navigation
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "ShowPhoto", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if
+            let controller = segue.destination as? FriendsPhotoViewController,
+            let indexPath = tableView.indexPathForSelectedRow
+        {
+            controller.userPhoto = sections[indexPath.section].names[indexPath.row].fullName
+        }
+    }
+    
     //MARK: - UpdateTableView
     
     func title() {
@@ -125,8 +140,8 @@ extension FriendsViewController: UITableViewDataSource {
 //MARK: - TableViewDelegate
 
 extension FriendsViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        
+    /*func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "FriendsPhotoViewControllerKey") as? FriendsPhotoViewController
         let selected = sections[indexPath.section]
@@ -134,7 +149,7 @@ extension FriendsViewController: UITableViewDelegate {
         vc?.friendId = selected.names[indexPath.row].id
         self.show(vc!, sender: nil)
         
-    }
+    }*/
 }
 
 //MARK: - SearchBarDelegate

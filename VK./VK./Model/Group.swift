@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class GroupItems:Object,  Decodable {
+class GroupItems: Object,  Decodable {
     
     @objc dynamic var id: Int = 0
     @objc dynamic var name: String = ""

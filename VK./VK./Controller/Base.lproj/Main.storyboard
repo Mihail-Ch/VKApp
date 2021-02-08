@@ -104,6 +104,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Upn-Ks-Chi" kind="show" identifier="ShowPhoto" id="E4S-IQ-BJg"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -124,8 +127,7 @@
                     <navigationItem key="navigationItem" id="fgb-Ag-cgC"/>
                     <connections>
                         <outlet property="searchBar" destination="o56-1U-46D" id="xJQ-pa-kfH"/>
-                        <outlet property="tableView" destination="cfW-hG-EKX" id="WPt-O9-hPm"/>
-                        <segue destination="Upn-Ks-Chi" kind="show" identifier="ShowFriendPhoto" id="KXe-oZ-cvb"/>
+                        <outlet property="tableView" destination="cfW-hG-EKX" id="0Sh-eH-8L9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xlZ-LA-TlG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -293,6 +295,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="abF-sA-Tkj" kind="unwind" identifier="AddGroup" unwindAction="unwindFromAllGroups:" id="vNo-R9-tcD"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -317,6 +322,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RoI-S7-rhv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="abF-sA-Tkj" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2901" y="351"/>
         </scene>
