@@ -8,12 +8,12 @@ target 'VK.' do
   # Pods for VK.
 
   target 'VK.Tests' do
-    pod 'Kingfisher', '~> 6.0.1'
+   
     inherit! :search_paths
     # Pods for testing
   end
   pod 'RealmSwift'
-
+  pod 'Kingfisher', '~> 6.0.1'
   target 'VK.UITests' do
     # Pods for testing
   end

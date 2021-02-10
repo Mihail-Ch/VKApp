@@ -6,13 +6,13 @@
 //
 
 import UIKit
+import Kingfisher
 
 
 class FriendsPhotoViewController: UIViewController, UICollectionViewDelegateFlowLayout {
 
-    var userPhoto: String?
     var friendId: Int = 0
-    var photo: [Photo]?
+    var photo: [Photo] = []
     lazy var vkApi = VKApi()
    
     @IBOutlet weak var collectionView: UICollectionView! {
@@ -24,7 +24,7 @@ class FriendsPhotoViewController: UIViewController, UICollectionViewDelegateFlow
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = userPhoto
+        
         vkApi.getFriendsPhoto(ownerId: friendId) { [weak self] photos in
             self?.photo = photos
             self?.collectionView.reloadData()
@@ -63,13 +63,15 @@ extension FriendsPhotoViewController: UICollectionViewDataSource {
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photo!.count
+        return photo.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! PhotoCollectionViewCell
-        let photos = photo?[indexPath.row]
-        cell.userPhoto.downloadImage(urlPath: photos?.imageUrl)
+        guard
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as? PhotoCollectionViewCell else { return UICollectionViewCell() }
+        let photos = photo[indexPath.row]
+        let url = URL(string: photos.imageUrl)
+        cell.configure(with: url)
         return cell
     }
 }

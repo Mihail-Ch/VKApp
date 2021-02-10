@@ -66,18 +66,19 @@ class FriendsViewController: UIViewController {
     }
     
     //MARK: - Navigation
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "ShowPhoto", sender: nil)
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard
+            let controller = segue.destination as? FriendsPhotoViewController,
+            let indexPath = tableView.indexPathForSelectedRow else { return }
+        let item = sections[indexPath.section]
+        let user = item.names[indexPath.row]
+        controller.title = user.fullName
+        controller.friendId = user.id
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if
-            let controller = segue.destination as? FriendsPhotoViewController,
-            let indexPath = tableView.indexPathForSelectedRow
-        {
-            controller.userPhoto = sections[indexPath.section].names[indexPath.row].fullName
-        }
+   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "ShowPhoto", sender: nil)
     }
     
     //MARK: - UpdateTableView
@@ -114,9 +115,9 @@ extension FriendsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
-        let friend = sections[indexPath.section]
-        cell.label.text = friend.names[indexPath.row].fullName
-        cell.avatar.downloadImage(urlPath: friend.names[indexPath.row].avatar)
+        let friend = sections[indexPath.section].names[indexPath.row]
+        let url = URL(string: friend.avatar)
+        cell.configure(name: friend.fullName, avatar: url)
        
         return cell
     }
@@ -127,6 +128,8 @@ extension FriendsViewController: UITableViewDataSource {
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
+    
+    
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sections[section].letter
@@ -139,18 +142,7 @@ extension FriendsViewController: UITableViewDataSource {
 
 //MARK: - TableViewDelegate
 
-extension FriendsViewController: UITableViewDelegate {
-        
-    /*func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "FriendsPhotoViewControllerKey") as? FriendsPhotoViewController
-        let selected = sections[indexPath.section]
-        vc?.title = selected.names[indexPath.row].fullName
-        vc?.friendId = selected.names[indexPath.row].id
-        self.show(vc!, sender: nil)
-        
-    }*/
-}
+extension FriendsViewController: UITableViewDelegate { }
 
 //MARK: - SearchBarDelegate
 

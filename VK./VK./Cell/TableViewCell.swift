@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 
 class TableViewCell: UITableViewCell {
@@ -28,8 +29,8 @@ class TableViewCell: UITableViewCell {
         avatar.layer.cornerRadius = avatar.frame.height / 2
     }
     
-    func configure(name: String, avatar: UIImage) {
-        self.avatar.image = avatar
+    func configure(name: String, avatar: URL?) {
+        self.avatar.kf.setImage(with: avatar)
         self.label.text = name
     }
     
