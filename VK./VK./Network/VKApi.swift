@@ -114,12 +114,13 @@ final class VKApi {
         }
     }
     
-    func getFriendsPhoto(ownerId: Int, complition: @escaping([Photo]) -> Void) {
-        request(.photos(id: ownerId)) { (data) in
+    func getFriendsPhoto(ownerId: Int, complition: @escaping() -> Void) {
+        request(.photos(id: ownerId)) { [weak self]  (data) in
             guard let data = data else {return}
             do {
                 let response = try JSONDecoder().decode(VKResponse<Photo>.self, from: data)
-                complition(response.items)
+                self?.saveToRealm(response.items)
+                complition()
             } catch {
                 print(error)
             }

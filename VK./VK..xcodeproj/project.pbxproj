@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0370625925DA5BB800D84E7A /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0370625825DA5BB800D84E7A /* Repository.swift */; };
 		03870EF725C05E98002D02AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03870EF625C05E98002D02AB /* AppDelegate.swift */; };
 		03870EF925C05E98002D02AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03870EF825C05E98002D02AB /* SceneDelegate.swift */; };
 		03870EFB25C05E98002D02AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03870EFA25C05E98002D02AB /* ViewController.swift */; };
@@ -60,6 +61,7 @@
 		012F1C2816D55B3D01E0DECA /* Pods-VK..debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VK..debug.xcconfig"; path = "Target Support Files/Pods-VK./Pods-VK..debug.xcconfig"; sourceTree = "<group>"; };
 		0337FC8C25C48850006DEEAE /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0337FCB125C48AE3006DEEAE /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0370625825DA5BB800D84E7A /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		03870EF325C05E98002D02AB /* VK..app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VK..app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03870EF625C05E98002D02AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03870EF825C05E98002D02AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				03870F3225C060F4002D02AB /* Session.swift */,
 				03870F3A25C06152002D02AB /* VKApi.swift */,
 				03870F3F25C06178002D02AB /* VKResponse.swift */,
+				0370625825DA5BB800D84E7A /* Repository.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -541,6 +544,7 @@
 				03870F9E25C06458002D02AB /* LikeButton.swift in Sources */,
 				03870F6525C062C8002D02AB /* FriendsViewController.swift in Sources */,
 				03E1949425C1FD7B00EF8AF2 /* DownloadImage.swift in Sources */,
+				0370625925DA5BB800D84E7A /* Repository.swift in Sources */,
 				03870EF925C05E98002D02AB /* SceneDelegate.swift in Sources */,
 				03870F7725C0632F002D02AB /* AllGroupViewController.swift in Sources */,
 				03870F4025C06178002D02AB /* VKResponse.swift in Sources */,

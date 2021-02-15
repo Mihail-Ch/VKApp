@@ -14,6 +14,7 @@ class FriendsPhotoViewController: UIViewController, UICollectionViewDelegateFlow
     var friendId: Int = 0
     var photo: [Photo] = []
     lazy var vkApi = VKApi()
+    lazy var repository = Repository()
    
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
@@ -25,17 +26,25 @@ class FriendsPhotoViewController: UIViewController, UICollectionViewDelegateFlow
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        vkApi.getFriendsPhoto(ownerId: friendId) { [weak self] photos in
-            self?.photo = photos
-            self?.collectionView.reloadData()
+        loadFromCache()
+        
+        vkApi.getFriendsPhoto(ownerId: friendId) { [weak self] in
+           self?.loadFromCache()
         }
     }
+    
+    //MARK: - Realm
+    
+    private func loadFromCache() {
+        photo = repository.fetchPhotos(ownerId: friendId)
+        collectionView?.reloadData()
+    }
 
-    @IBAction func unwindToShowPhoto(_ unwindSegue: UIStoryboardSegue) { }
+   // @IBAction func unwindToShowPhoto(_ unwindSegue: UIStoryboardSegue) { }
 
 
 // MARK: - UICollectionViewDelegateFlowLayout
-enum  Layout {
+/*enum  Layout {
     static let columns = 2
     static let cellHeight: CGFloat = 150
 }
@@ -53,7 +62,7 @@ func collectionView(_ collectionView: UICollectionView, layout collectionViewLay
 
 func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
     return .zero
-}
+}*/
 
 }
 
@@ -61,6 +70,9 @@ func collectionView(_ collectionView: UICollectionView, layout collectionViewLay
 
 extension FriendsPhotoViewController: UICollectionViewDataSource {
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return photo.count
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photo.count

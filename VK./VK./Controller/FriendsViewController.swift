@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import RealmSwift
+
 
 
 class FriendsViewController: UIViewController {
@@ -16,6 +16,7 @@ class FriendsViewController: UIViewController {
     
     lazy var vkApi = VKApi()
     var friend = [User]()
+    lazy var repository = Repository()
     var sections = [Section<User>]()
     
     
@@ -42,10 +43,10 @@ class FriendsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadFromRealm()
+        loadFromCache()
        
         vkApi.getFriends { [weak self] in
-            self?.loadFromRealm()
+            self?.loadFromCache()
         }
         
         title()
@@ -56,10 +57,8 @@ class FriendsViewController: UIViewController {
     
     //MARK: - Realm
     
-    private func loadFromRealm() {
-        let realm = try! Realm()
-        let friends = realm.objects(User.self)
-        friend = Array(friends)
+    private func loadFromCache() {
+        friend = repository.fetchFriends()
         makeSortedSection()
         tableView.reloadData()
         
@@ -68,16 +67,15 @@ class FriendsViewController: UIViewController {
     //MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard
-            let controller = segue.destination as? FriendsPhotoViewController,
-            let indexPath = tableView.indexPathForSelectedRow else { return }
-        let item = sections[indexPath.section]
-        let user = item.names[indexPath.row]
-        controller.title = user.fullName
-        controller.friendId = user.id
+        guard let controller = segue.destination as? FriendsPhotoViewController,
+              let indexPath = tableView.indexPathForSelectedRow
+        else { return }
+        let item = sections[indexPath.section].names
+        controller.title = item[indexPath.row].fullName
+        controller.friendId = item[indexPath.row].id
     }
     
-   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "ShowPhoto", sender: nil)
     }
     
@@ -110,7 +108,7 @@ extension FriendsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sections[section].letter.count
+       return sections[section].letter.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
