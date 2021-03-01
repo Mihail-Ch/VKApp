@@ -21,7 +21,7 @@ final class Photo:Object, Decodable {
     enum CodingKeys: String, CodingKey {
         case id
         case ownerId = "owner_id"
-        case url
+        case imageUrl = "url"
         case sizes
     }
     
@@ -34,7 +34,7 @@ final class Photo:Object, Decodable {
         
         var sizesArrayContainer = try container.nestedUnkeyedContainer(forKey: .sizes)
         let firstContainer = try sizesArrayContainer.nestedContainer(keyedBy: CodingKeys.self)
-        self.imageUrl = try firstContainer.decode(String.self, forKey: .url)
+        self.imageUrl = try firstContainer.decode(String.self, forKey: .imageUrl)
     }
 }
 

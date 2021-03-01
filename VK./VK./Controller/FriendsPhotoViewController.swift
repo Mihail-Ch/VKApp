@@ -12,9 +12,10 @@ import Kingfisher
 class FriendsPhotoViewController: UIViewController, UICollectionViewDelegateFlowLayout {
 
     var friendId: Int = 0
-    var photo: [Photo] = []
+    var photo: [Photo]?
     lazy var vkApi = VKApi()
     lazy var repository = Repository()
+    
    
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
@@ -40,7 +41,7 @@ class FriendsPhotoViewController: UIViewController, UICollectionViewDelegateFlow
         collectionView?.reloadData()
     }
 
-   // @IBAction func unwindToShowPhoto(_ unwindSegue: UIStoryboardSegue) { }
+    @IBAction func unwindToShowPhoto(_ unwindSegue: UIStoryboardSegue) { }
 
 
 // MARK: - UICollectionViewDelegateFlowLayout
@@ -71,17 +72,17 @@ func collectionView(_ collectionView: UICollectionView, layout collectionViewLay
 extension FriendsPhotoViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return photo.count
+        return photo!.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photo.count
+        return photo!.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as? PhotoCollectionViewCell else { return UICollectionViewCell() }
-        let photos = photo[indexPath.row]
+        let photos = photo![indexPath.row]
         let url = URL(string: photos.imageUrl)
         cell.configure(with: url)
         return cell

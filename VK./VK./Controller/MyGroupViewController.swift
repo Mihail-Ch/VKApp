@@ -13,6 +13,7 @@ class MyGroupViewController: UIViewController {
     var sections = [Section<GroupItems>]()
     var groups = [GroupItems]()
     lazy var vkApi = VKApi()
+    lazy var repository = Repository()
     
     //MARK: - Outlet
     @IBOutlet weak var tableView: UITableView! {
@@ -33,14 +34,23 @@ class MyGroupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        vkApi.getGroups { [weak self] group in
-            self?.groups = group
-            self?.makeSortedSection()
-            self?.tableView.reloadData()
+        loadFromCache()
+        
+        vkApi.getGroups { [weak self] in
+            self?.loadFromCache()
         }
         title()
         makeSortedSection()
         tableView.register(TableViewCell.nib, forCellReuseIdentifier: TableViewCell.reuseId)
+    }
+    
+    //MARK: - Realm
+    
+    private func loadFromCache() {
+        groups = repository.fetchGroups()
+        makeSortedSection()
+        tableView.reloadData()
+        
     }
     
     //MARK: - Navigation

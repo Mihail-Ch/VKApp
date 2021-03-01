@@ -25,17 +25,17 @@ final class VKApi {
             case .groups:
                 return  "/method/groups.get"
             case .photos:
-                return "photos.getAll"
+                return "/method/photos.getAll"
             case .searchGroups:
-                return  "groups.search"
+                return  "/method/groups.search"
             }
         }
         
         var parameters: [String: String] {
             switch self {
             case .friends:
-                return ["fields": "photo_50",
-                        "count": "15"]
+                return ["fields": "photo_50"
+                        ]
             case .groups:
                 return ["count": "10",
                         "extended": "1"]
@@ -54,7 +54,7 @@ final class VKApi {
         components.path = method.path
         let defaultQueryItems = [
             URLQueryItem(name: "access_token", value: session.token),
-            URLQueryItem(name: "v", value: "5.126")
+            URLQueryItem(name: "v", value: "5.130")
         ]
         let methodQueryItems = method.parameters.map {
             URLQueryItem(name: $0, value: $1)
@@ -90,12 +90,13 @@ final class VKApi {
         }
     }
     
-    func getGroups(completion: @escaping ([GroupItems]) -> Void) {
+    func getGroups(completion: @escaping () -> Void) {
         request(.groups) { (data) in
             guard let data = data else { return }
             do {
                 let response = try JSONDecoder().decode(VKResponse<GroupItems>.self, from: data)
-                completion(response.items)
+                self.saveToRealm(response.items)
+                completion()
             } catch {
                 print(error)
             }

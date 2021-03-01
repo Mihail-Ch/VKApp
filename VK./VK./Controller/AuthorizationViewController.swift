@@ -67,6 +67,7 @@ extension AuthorizationViewController: WKNavigationDelegate {
 
         Session.shared.token = token!
         Session.shared.userId = Int(userId!)!
+        
         performSegue(withIdentifier: "GoApp", sender: nil)
         print("👋 token:"  + token!)
         decisionHandler(.cancel)

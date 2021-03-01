@@ -34,6 +34,8 @@
 		03870F9825C06420002D02AB /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03870F9625C06420002D02AB /* TableViewCell.xib */; };
 		03870F9E25C06458002D02AB /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03870F9D25C06458002D02AB /* LikeButton.swift */; };
 		03870FA725C06498002D02AB /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03870FA625C06498002D02AB /* Section.swift */; };
+		038CB2D725E971AD00A90048 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038CB2D525E971AD00A90048 /* NewsTableViewCell.swift */; };
+		038CB2D825E971AD00A90048 /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 038CB2D625E971AD00A90048 /* NewsTableViewCell.xib */; };
 		03E1949425C1FD7B00EF8AF2 /* DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E1949325C1FD7B00EF8AF2 /* DownloadImage.swift */; };
 		B01DC5E67A0D2DD83ABDA037 /* Pods_VK_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF6F5426E92C8B276F1EDDE7 /* Pods_VK_.framework */; };
 		DD60135059B43E8FA82CA978 /* Pods_VK__VK_UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212BE74D7CEE1654A10EA24B /* Pods_VK__VK_UITests.framework */; };
@@ -94,6 +96,8 @@
 		03870F9625C06420002D02AB /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		03870F9D25C06458002D02AB /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
 		03870FA625C06498002D02AB /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		038CB2D525E971AD00A90048 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
+		038CB2D625E971AD00A90048 /* NewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
 		03E1948725C1FC0200EF8AF2 /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		03E1949325C1FD7B00EF8AF2 /* DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadImage.swift; sourceTree = "<group>"; };
 		0DA18A66260F7828CE4654DC /* Pods-VK.Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VK.Tests.debug.xcconfig"; path = "Target Support Files/Pods-VK.Tests/Pods-VK.Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -257,6 +261,8 @@
 				03870F8525C063C5002D02AB /* PhotoCollectionViewCell.swift */,
 				03870F9525C06420002D02AB /* TableViewCell.swift */,
 				03870F9625C06420002D02AB /* TableViewCell.xib */,
+				038CB2D525E971AD00A90048 /* NewsTableViewCell.swift */,
+				038CB2D625E971AD00A90048 /* NewsTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -403,6 +409,7 @@
 				03870F9825C06420002D02AB /* TableViewCell.xib in Resources */,
 				03870F0025C05E9A002D02AB /* Assets.xcassets in Resources */,
 				03870EFE25C05E99002D02AB /* Main.storyboard in Resources */,
+				038CB2D825E971AD00A90048 /* NewsTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,6 +549,7 @@
 				03870EF725C05E98002D02AB /* AppDelegate.swift in Sources */,
 				03870F8625C063C5002D02AB /* PhotoCollectionViewCell.swift in Sources */,
 				03870F9E25C06458002D02AB /* LikeButton.swift in Sources */,
+				038CB2D725E971AD00A90048 /* NewsTableViewCell.swift in Sources */,
 				03870F6525C062C8002D02AB /* FriendsViewController.swift in Sources */,
 				03E1949425C1FD7B00EF8AF2 /* DownloadImage.swift in Sources */,
 				0370625925DA5BB800D84E7A /* Repository.swift in Sources */,

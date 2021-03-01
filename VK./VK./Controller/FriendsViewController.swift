@@ -67,16 +67,18 @@ class FriendsViewController: UIViewController {
     //MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "ShowPhoto" else { return }
         guard let controller = segue.destination as? FriendsPhotoViewController,
               let indexPath = tableView.indexPathForSelectedRow
         else { return }
+        
         let item = sections[indexPath.section].names
         controller.title = item[indexPath.row].fullName
-        controller.friendId = item[indexPath.row].id
+        controller.friendId = item[indexPath.row].id 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "ShowPhoto", sender: nil)
+       performSegue(withIdentifier: "ShowPhoto", sender: nil)
     }
     
     //MARK: - UpdateTableView
@@ -108,7 +110,7 @@ extension FriendsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return sections[section].letter.count
+        return sections[section].names.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

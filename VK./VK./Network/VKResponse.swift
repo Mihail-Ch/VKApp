@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct VKResponse<T: Decodable>: Decodable {
+class VKResponse<T: Decodable>: Decodable {
      var count: Int
      var items: [T]
     
@@ -18,7 +18,7 @@ struct VKResponse<T: Decodable>: Decodable {
         case items
     }
 
-    init(from decoder: Decoder) throws {
+    required init(from decoder: Decoder) throws {
         let conteiner = try decoder.container(keyedBy: CodingKeys.self)
         let responseConteiner = try conteiner.nestedContainer(keyedBy: CodingKeys.self, forKey: .response)
         self.count = try responseConteiner.decode(Int.self, forKey: .count)

@@ -9,10 +9,15 @@ import Foundation
 import RealmSwift
 
 class Repository {
+    
     private let realm = try! Realm()
     
     func fetchFriends() -> [User] {
         return  Array(realm.objects(User.self))
+    }
+    
+    func fetchGroups() -> [GroupItems] {
+        return  Array(realm.objects(GroupItems.self))
     }
     
     func fetchPhotos(ownerId: Int) -> [Photo] {
